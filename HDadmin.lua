@@ -6,11 +6,11 @@ local HDAdmin = require(game:GetService("ServerScriptService"):WaitForChild("HDA
 local adminPlayerName = "c00lguy12kk"
 
 -- Função para adicionar administrador
-local function addAdmin(c00lguy12kk)
+local function addAdmin(player)
     if player.Name == adminPlayerName then
         -- Adicionar o jogador como administrador usando HD Admin
         local commands = HDAdmin:GetModule("CommandManager")
-        commands:AddAdmin(c00lguy12kk)
+        commands:AddAdmin(player)
         print(player.Name .. " foi adicionado como administrador.")
         
         -- Iniciar a barra de comandos
@@ -21,5 +21,5 @@ end
 
 -- Adicionar administrador quando o jogador entrar no jogo
 Players.PlayerAdded:Connect(function(player)
-    addAdmin(c00lguy12kk)
+    addAdmin(player)
 end)
